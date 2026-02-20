@@ -201,7 +201,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                               Icon(
                                 Icons.star,
                                 color: Colors.amber[600],
-                                size: 16,
+                                size: 12,
                               ),
                               const SizedBox(width: 4),
                               Text(
@@ -364,7 +364,7 @@ class _ProductDetailScreenState extends State<ProductDetailScreen> {
                     const Text(
                       'Quantity',
                       style: TextStyle(
-                        fontSize: 18,
+                        fontSize: 15,
                         fontWeight: FontWeight.bold,
                       ),
                     ),

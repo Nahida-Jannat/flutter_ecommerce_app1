@@ -33,22 +33,24 @@ class ProductCard extends StatelessWidget {
         ),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisSize: MainAxisSize.min,
           children: [
             // Product Image with Badges
             Stack(
               children: [
+                // Fixed image height
                 ClipRRect(
                   borderRadius: const BorderRadius.vertical(
                     top: Radius.circular(20),
                   ),
                   child: Image.network(
                     product.imageUrl,
-                    height: 150,
+                    height: 140,
                     width: double.infinity,
                     fit: BoxFit.cover,
                     errorBuilder: (context, error, stackTrace) {
                       return Container(
-                        height: 150,
+                        height: 140,
                         color: Colors.grey[100],
                         child: const Center(
                           child: Icon(
@@ -65,12 +67,12 @@ class ProductCard extends StatelessWidget {
                 // Discount Badge
                 if (product.hasDiscount)
                   Positioned(
-                    top: 12,
-                    left: 12,
+                    top: 8,
+                    left: 8,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 4,
+                        horizontal: 6,
+                        vertical: 2,
                       ),
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -78,13 +80,13 @@ class ProductCard extends StatelessWidget {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                         ),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(6),
                       ),
                       child: Text(
                         '-${product.discountPercentage.toInt()}%',
                         style: const TextStyle(
                           color: Colors.white,
-                          fontSize: 12,
+                          fontSize: 10,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -94,12 +96,12 @@ class ProductCard extends StatelessWidget {
                 // New Badge
                 if (product.isNew)
                   Positioned(
-                    top: 12,
-                    right: 12,
+                    top: 8,
+                    right: 8,
                     child: Container(
                       padding: const EdgeInsets.symmetric(
-                        horizontal: 8,
-                        vertical: 4,
+                        horizontal: 6,
+                        vertical: 2,
                       ),
                       decoration: BoxDecoration(
                         gradient: LinearGradient(
@@ -107,13 +109,13 @@ class ProductCard extends StatelessWidget {
                           begin: Alignment.topLeft,
                           end: Alignment.bottomRight,
                         ),
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(6),
                       ),
                       child: const Text(
                         'NEW',
                         style: TextStyle(
                           color: Colors.white,
-                          fontSize: 12,
+                          fontSize: 10,
                           fontWeight: FontWeight.bold,
                         ),
                       ),
@@ -122,8 +124,8 @@ class ProductCard extends StatelessWidget {
 
                 // Favorite Button
                 Positioned(
-                  bottom: 12,
-                  right: 12,
+                  bottom: 8,
+                  right: 8,
                   child: Container(
                     decoration: BoxDecoration(
                       color: Colors.white,
@@ -140,54 +142,60 @@ class ProductCard extends StatelessWidget {
                       icon: Icon(
                         isFavorite ? Icons.favorite : Icons.favorite_border,
                         color: isFavorite ? Colors.red : Colors.grey[600],
-                        size: 20,
+                        size: 18,
                       ),
                       onPressed: onFavoriteToggle,
+                      padding: EdgeInsets.zero,
+                      constraints: const BoxConstraints(
+                        minWidth: 32,
+                        minHeight: 32,
+                      ),
                     ),
                   ),
                 ),
               ],
             ),
 
-            // Product Details
+            // Product Details - Reduced padding
             Padding(
-              padding: const EdgeInsets.all(16),
+              padding: const EdgeInsets.all(12),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
                 children: [
                   // Category Tag
                   Container(
                     padding: const EdgeInsets.symmetric(
-                      horizontal: 8,
-                      vertical: 4,
+                      horizontal: 6,
+                      vertical: 2,
                     ),
                     decoration: BoxDecoration(
                       color: Colors.grey[100],
-                      borderRadius: BorderRadius.circular(6),
+                      borderRadius: BorderRadius.circular(4),
                     ),
                     child: Text(
                       product.category,
                       style: const TextStyle(
-                        fontSize: 10,
+                        fontSize: 9, // Reduced from 10 to 9
                         fontWeight: FontWeight.w500,
                         color: Colors.grey,
                       ),
                     ),
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 4),
 
                   // Product Name
                   Text(
                     product.name,
                     style: const TextStyle(
                       fontWeight: FontWeight.w600,
-                      fontSize: 14,
-                      height: 1.4,
+                      fontSize: 15,
+                      height: 1.3,
                     ),
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 4),
 
                   // Price
                   Row(
@@ -195,69 +203,80 @@ class ProductCard extends StatelessWidget {
                       Text(
                         '\$${product.price.toStringAsFixed(2)}',
                         style: const TextStyle(
-                          fontSize: 18,
+                          fontSize: 14,
                           fontWeight: FontWeight.bold,
                           color: Colors.deepPurple,
                         ),
                       ),
-                      const SizedBox(width: 8),
+                      const SizedBox(width: 4), // Reduced from 8 to 4
                       if (product.hasDiscount)
-                        Text(
-                          '\$${product.originalPrice.toStringAsFixed(2)}',
-                          style: TextStyle(
-                            fontSize: 14,
-                            color: Colors.grey[400],
-                            decoration: TextDecoration.lineThrough,
+                        Expanded(
+                          child: Text(
+                            '\$${product.originalPrice.toStringAsFixed(2)}',
+                            style: TextStyle(
+                              fontSize: 10, // Reduced from 12 to 10
+                              color: Colors.grey[400],
+                              decoration: TextDecoration.lineThrough,
+                            ),
+                            overflow: TextOverflow.ellipsis,
                           ),
                         ),
                     ],
                   ),
-                  const SizedBox(height: 8),
+                  const SizedBox(height: 4), // Reduced from 8 to 4
 
                   // Rating and Stock
                   Row(
                     children: [
                       Container(
                         padding: const EdgeInsets.symmetric(
-                          horizontal: 6,
-                          vertical: 2,
+                          horizontal: 4,
+                          vertical: 1,
                         ),
                         decoration: BoxDecoration(
                           color: Colors.amber[50],
                           borderRadius: BorderRadius.circular(4),
                         ),
                         child: Row(
+                          mainAxisSize: MainAxisSize.min,
                           children: [
                             Icon(
                               Icons.star,
                               color: Colors.amber[600],
-                              size: 14,
+                              size: 8, // Reduced from 10 to 8
                             ),
-                            const SizedBox(width: 4),
-                            Text(
-                              product.rating.toString(),
-                              style: TextStyle(
-                                fontSize: 12,
-                                fontWeight: FontWeight.w600,
-                                color: Colors.amber[800],
+                            const SizedBox(width: 1),
+                            Flexible(
+                              child: Text(
+                                product.rating.toString(),
+                                style: TextStyle(
+                                  fontSize: 8, // Reduced from 10 to 8
+                                  fontWeight: FontWeight.w600,
+                                  color: Colors.amber[800],
+                                ),
+                                overflow: TextOverflow.ellipsis,
                               ),
                             ),
                           ],
                         ),
                       ),
-                      const SizedBox(width: 8),
-                      Text(
-                        '(${product.reviews} reviews)',
-                        style: const TextStyle(
-                          fontSize: 12,
-                          color: Colors.grey,
+                      const SizedBox(width: 4), // Reduced from 5 to 4
+                      Expanded(
+                        child: Text(
+                          '(${product.reviews})',
+                          style: const TextStyle(
+                            fontSize: 8, // Reduced from 10 to 8
+                            color: Colors.blueGrey,
+                          ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 1,
                         ),
                       ),
-                      const Spacer(),
+                      const SizedBox(width: 4),
                       Text(
-                        '${product.stock} left',
+                        '${product.stock}',
                         style: TextStyle(
-                          fontSize: 12,
+                          fontSize: 9, // Reduced from 12 to 9
                           color: product.stock < 10
                               ? Colors.red
                               : Colors.green,

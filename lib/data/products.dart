@@ -2,6 +2,35 @@ import '../models/product.dart';
 
 class ProductsData {
   static List<Product> products = [
+
+
+    // Fashion
+    Product(
+      id: '3',
+      name: 'Sony WH-1000XM5',
+      description: 'Industry-leading noise cancellation headphones with 30-hour battery life and premium sound quality.',
+      price: 349.99,
+      originalPrice: 399.99,
+      rating: 4.9,
+      reviews: 4567,
+      imageUrl: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e',
+      category: 'Electronics',
+      stock: 120,
+      features: ['Noise Cancelling', '30h Battery', 'Hi-Res Audio', 'Touch Controls'],
+    ),
+
+    Product(
+      id: '5',
+      name: 'Casual Sneakers',
+      description: 'Comfortable everyday sneakers with memory foam insoles and stylish design.',
+      price: 89.99,
+      rating: 4.3,
+      reviews: 1234,
+      imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff',
+      category: 'Fashion',
+      stock: 200,
+      features: ['Memory Foam', 'Breathable', 'Rubber Sole'],
+    ),
     // Electronics
     Product(
       id: '1',
@@ -24,7 +53,7 @@ class ProductsData {
     ),
     Product(
       id: '2',
-      name: 'Samsung Galaxy S24 Ultra',
+      name: 'Samsung Galaxy S24',
       description: 'Ultimate smartphone with S Pen, 200MP camera, and Snapdragon 8 Gen 3. Perfect for productivity and creative work.',
       price: 1199.99,
       originalPrice: 1299.99,
@@ -36,21 +65,10 @@ class ProductsData {
       stock: 75,
       features: ['S Pen Included', '200MP Camera', 'Snapdragon 8 Gen 3', '5000mAh'],
     ),
-    Product(
-      id: '3',
-      name: 'Sony WH-1000XM5',
-      description: 'Industry-leading noise cancellation headphones with 30-hour battery life and premium sound quality.',
-      price: 349.99,
-      originalPrice: 399.99,
-      rating: 4.9,
-      reviews: 4567,
-      imageUrl: 'https://images.unsplash.com/photo-1505740420928-5e560c06d30e',
-      category: 'Electronics',
-      stock: 120,
-      features: ['Noise Cancelling', '30h Battery', 'Hi-Res Audio', 'Touch Controls'],
-    ),
 
-    // Fashion
+
+
+    // Home
     Product(
       id: '4',
       name: 'Leather Jacket',
@@ -64,20 +82,7 @@ class ProductsData {
       stock: 45,
       features: ['Genuine Leather', 'Water Resistant', 'Multiple Pockets'],
     ),
-    Product(
-      id: '5',
-      name: 'Casual Sneakers',
-      description: 'Comfortable everyday sneakers with memory foam insoles and stylish design.',
-      price: 89.99,
-      rating: 4.3,
-      reviews: 1234,
-      imageUrl: 'https://images.unsplash.com/photo-1542291026-7eec264c27ff',
-      category: 'Fashion',
-      stock: 200,
-      features: ['Memory Foam', 'Breathable', 'Rubber Sole'],
-    ),
 
-    // Home
     Product(
       id: '6',
       name: 'Smart LED TV 65"',
