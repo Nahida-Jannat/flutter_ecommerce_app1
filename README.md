@@ -33,12 +33,7 @@ A modern, fully-featured e-commerce mobile application built with Flutter. This 
 
 ## 📱 Screens
 
-1. **Home Screen** - Product grid with category filtering and search
-2. **Product Detail Screen** - Detailed product view with image gallery
-3. **Cart Screen** - Shopping cart with item management
-4. **Favorites Screen** - Saved favorite products
-
-<img src="screenshots/home.png" width="200">
+![Shop Verse App Screenshot](https://github.com/Nahida-Jannat/flutter_ecommerce_app1/blob/master/Shop_verse.png?raw=true)
 
 
 ## 🚀 Getting Started
